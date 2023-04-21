@@ -5,12 +5,11 @@
     <div class="collapse navbar-collapse container-fluid" id="navbarNav">
       <ul class="navbar-nav">
         <li v-for="(page, index) in pages" class="nav-item" :key="index">
-          <a class="nav-link"
-             :class="{active: activePage == index}"
-             :href="page.link.url"
-             :title="`This link goes to the ${page.link.text} page`"
-             @click.prevent="navLinkClick(index)"
-          >{{ page.link.text }}</a>
+          <navbar-link
+              :page="page"
+              :is-active="activePage === index"
+              @click.prevent="navLinkClick(index)"
+          ></navbar-link>
         </li>
       </ul>
       <form class="d-flex">
@@ -26,7 +25,11 @@
 </template>
 
 <script>
+import NavbarLink from "@/components/NavbarLink";
+
 export default {
+  components: {NavbarLink},
+
   props: ['pages', 'activePage', 'navLinkClick'],
 
   data() {
