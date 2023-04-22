@@ -9,6 +9,7 @@
   </navbar>
 
   <page-viewer
+      v-if="pages.length > 0"
       :page="pages[activePage]"
   ></page-viewer>
 </template>
@@ -35,7 +36,8 @@ export default {
   methods: {
     async getPages() {
       let res = await fetch('pages.json');
-      this.pages = await res.json();
+      let data = await res.json();
+      this.pages = data;
     }
   }
 }
