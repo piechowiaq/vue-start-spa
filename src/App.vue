@@ -8,21 +8,28 @@
 
   </navbar>
 
-  <page-viewer
-      v-if="pages.length > 0"
-      :page="pages[activePage]"
-  ></page-viewer>
+<!--  <page-viewer-->
+<!--      v-if="pages.length > 0"-->
+<!--      :page="pages[activePage]"-->
+<!--  ></page-viewer>-->
+
+  <create-page
+    :page-created="pageCreated">
+
+  </create-page>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar";
 import PageViewer from "@/components/PageViewer";
+import CreatePage from "@/components/CreatePage";
 
 
 export default {
   components: {
     Navbar,
-    PageViewer
+    PageViewer,
+    CreatePage
   },
   created() {
     this.getPages();
@@ -38,6 +45,9 @@ export default {
       let res = await fetch('pages.json');
       let data = await res.json();
       this.pages = data;
+    },
+    pageCreated(pageObj) {
+      console.log(pageObj)
     }
   }
 }
