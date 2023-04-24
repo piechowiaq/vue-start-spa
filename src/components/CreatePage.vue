@@ -116,11 +116,19 @@ export default {
           url: this.linkUrl
         },
         published: this.published
-      })
-
-
-
-
+      });
+      this.pageTitle = '';
+      this.content ='';
+      this.linkText ='';
+      this.linkUrl = '';
+      this.published = true
+    },
+  },
+  watch: {
+    pageTitle(newTitle, oldTitle) {
+      if (this.linkText === oldTitle) {
+        this.linkText = newTitle;
+      }
     }
   }
 }
