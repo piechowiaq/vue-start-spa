@@ -47,7 +47,7 @@ export default {
       this.pages = data;
     },
     pageCreated(pageObj) {
-      console.log(pageObj)
+      this.pages.push(pageObj);
     }
   }
 }

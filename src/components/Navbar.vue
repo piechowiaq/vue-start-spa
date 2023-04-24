@@ -4,7 +4,7 @@
     <a class="navbar-brand" href="#">My Vue</a>
     <div class="collapse navbar-collapse container-fluid" id="navbarNav">
       <ul class="navbar-nav">
-        <li v-for="(page, index) in pages" class="nav-item" :key="index">
+        <li v-for="(page, index) in publishedPages" class="nav-item" :key="index">
           <navbar-link
               :page="page"
               :is-active="activePage === index"
@@ -29,6 +29,11 @@ import NavbarLink from "@/components/NavbarLink";
 
 export default {
   components: {NavbarLink},
+  computed: {
+    publishedPages() {
+      return this.pages.filter(p => p.published);
+    }
+  },
   created() {
     this.getThemeSetting();
   },
