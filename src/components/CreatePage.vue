@@ -80,9 +80,21 @@
 <script>
 export default {
   name: "CreatePage",
+  emits: {
+    pageCreated(pageTitle, content, link){
+        if(!pageTitle){
+          return false;
+        }
+      if(!content){
+        return false;
+      }
+      if(!link || !link.text || !link.url){
+        return false;
+      }
 
-  props: ['pageCreated'],
-
+      return true;
+    }
+  },
   computed: {
     isFormInvalid(){
 
@@ -107,16 +119,16 @@ export default {
         alert('Please fill the form.');
         return;
       }
+       this.$emit('pageCreated', {
+         pageTitle: this.pageTitle,
+         content: this.content,
+         link: {
+           text: this.linkText,
+           url: this.linkUrl
+         },
+         published: this.published
+       });
 
-      this.pageCreated({
-        pageTitle: this.pageTitle,
-        content: this.content,
-        link: {
-          text: this.linkText,
-          url: this.linkUrl
-        },
-        published: this.published
-      });
       this.pageTitle = '';
       this.content ='';
       this.linkText ='';
