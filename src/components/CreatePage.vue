@@ -85,7 +85,9 @@ export default {
         if(!pageTitle){
           return false;
         }
-
+      if(!content){
+        return false;
+      }
       if(!link || !link.text || !link.url){
         return false;
       }
