@@ -86,9 +86,7 @@ export default {
           return false;
         }
 
-      if(!link || !link.text || !link.url){
-        return false;
-      }
+
 
       return true;
     }
