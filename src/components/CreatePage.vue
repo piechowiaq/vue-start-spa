@@ -82,9 +82,7 @@ export default {
   name: "CreatePage",
   emits: {
     pageCreated(pageTitle, content, link){
-        if(!pageTitle){
-          return false;
-        }
+
 
       /**
        Holidays with family still thinking about coding
