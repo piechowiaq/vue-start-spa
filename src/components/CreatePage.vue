@@ -88,6 +88,8 @@ export default {
        Holidays with family still thinking about coding
        */
 
+      /** Holiday playing with bubble.io */
+
       return true;
     }
   },
