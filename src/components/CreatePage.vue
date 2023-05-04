@@ -96,6 +96,8 @@ export default {
       /** Today continuing with bubble.io
        */
 
+      /** Going to Warsaw today practising bubble on train*/
+
       return true;
     }
   },
