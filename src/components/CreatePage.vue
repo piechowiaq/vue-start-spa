@@ -100,6 +100,8 @@ export default {
 
       /** Back from Warsaw today practising bubble on train*/
 
+      /** Continuing my journey with bubble*/
+
       return true;
     }
   },
