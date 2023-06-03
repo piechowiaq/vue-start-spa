@@ -4,13 +4,15 @@
     <a class="navbar-brand" href="#">My Vue</a>
     <div class="collapse navbar-collapse container-fluid" id="navbarNav">
       <ul class="navbar-nav">
-        <li v-for="(page, index) in publishedPages" class="nav-item" :key="index">
-          <navbar-link
+                <navbar-link
+              v-for="(page, index) in publishedPages"
+              class="nav-item"
+              :key="index"
               :page="page"
+              :index="index"
               :is-active="activePage === index"
-              @click.prevent="navLinkClick(index)"
+              @activated="$emit('activated')"
           ></navbar-link>
-        </li>
       </ul>
       <form class="d-flex">
         <button
@@ -37,7 +39,7 @@ export default {
   created() {
     this.getThemeSetting();
   },
-  props: ['pages', 'activePage', 'navLinkClick'],
+  props: ['pages', 'activePage'],
 
   data() {
 
