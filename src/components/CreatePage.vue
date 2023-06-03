@@ -82,31 +82,17 @@ export default {
   name: "CreatePage",
   emits: {
     pageCreated(pageTitle, content, link){
+      if(!pageTitle){
+        return false;
+      }
 
+      if(!content){
+        return false;
+      }
 
-      /**
-       Holidays with family still thinking about coding
-       */
-
-      /** Holiday playing with bubble.io */
-
-      /** Figuring out bubble layout function
-       */
-
-      /** Today continuing with bubble.io
-       */
-
-      /** Going to Warsaw today practising bubble on train*/
-
-      /** Back from Warsaw today practising bubble on train*/
-
-      /** Continuing my journey with bubble*/
-
-      /** Continuing my journey with bubble*/
-
-      /** Continuing my journey with bubble*/
-
-      /** Continuing my journey with bubble*/
+      if(!link || !link.text || !link.url){
+        return false;
+      }
 
       return true;
     }
