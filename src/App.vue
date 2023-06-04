@@ -2,18 +2,12 @@
   <navbar
       :pages="pages"
       :active-page="activePage"
+  ></navbar>
 
-  >
-
-
-  </navbar>
-
-
-
-  <create-page
-    @page-created="pageCreated">
-
-  </create-page>
+  <router-view></router-view>
+<!--  <create-page-->
+<!--    @page-created="pageCreated">-->
+<!--  </create-page>-->
 </template>
 
 <script>
