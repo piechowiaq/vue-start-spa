@@ -13,6 +13,15 @@
               :is-active="activePage === index"
               @activated="$emit('activated')"
           ></navbar-link>
+
+        <li>
+          <router-link class="nav-link"
+                       to="/create"
+
+
+
+          >Create Page</router-link>
+        </li>
       </ul>
       <form class="d-flex">
         <button
