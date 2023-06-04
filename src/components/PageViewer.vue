@@ -9,12 +9,16 @@
 export default {
   created() {
     this.page =  this.$pages.getSinglePage(this.$route.params.index);
+    this.$watch(() => this.$route.params, (newParams, prevParams) => {
+      this.page = this.$pages.getSinglePage(newParams.index);
+    });
   },
   data() {
     return {
       page: null
     };
-  }
+  },
+
 
 
 }
