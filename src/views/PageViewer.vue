@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  inject: ['$pages'],
   created() {
     this.page =  this.$pages.getSinglePage(this.$route.params.index);
     this.$watch(() => this.$route.params, (newParams, prevParams) => {
@@ -18,9 +19,6 @@ export default {
       page: null
     };
   },
-
-
-
 }
 </script>
 

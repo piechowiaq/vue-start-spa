@@ -14,9 +14,9 @@
         <li>
           <router-link
               class="nav-link"
-              to="/pages/create"
+              to="/pages"
               active-class="active"
-          >Create Page</router-link>
+          >Pages</router-link>
         </li>
       </ul>
       <form class="d-flex">
@@ -34,6 +34,7 @@
 import NavbarLink from "@/components/NavbarLink";
 
 export default {
+  inject: ['$pages'],
   components: {NavbarLink},
   computed: {
     publishedPages() {
