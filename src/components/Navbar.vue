@@ -10,14 +10,13 @@
               :key="index"
               :page="page"
               :index="index"
-              :is-active="activePage === index"
-              @activated="$emit('activated')"
+
           ></navbar-link>
 
         <li>
           <router-link class="nav-link"
                        to="/create"
-
+                        active-class="active"
 
 
           >Create Page</router-link>
@@ -47,13 +46,15 @@ export default {
   },
   created() {
     this.getThemeSetting();
+    this.pages = this.$pages.getAllPages();
   },
-  props: ['pages', 'activePage'],
+
 
   data() {
 
     return {
       theme: 'dark',
+      pages: [],
 
     }
   },
