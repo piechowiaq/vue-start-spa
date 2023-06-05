@@ -4,21 +4,18 @@
     <a class="navbar-brand" href="#">My Vue</a>
     <div class="collapse navbar-collapse container-fluid" id="navbarNav">
       <ul class="navbar-nav">
-                <navbar-link
+        <navbar-link
               v-for="(page, index) in publishedPages"
               class="nav-item"
               :key="index"
               :page="page"
               :index="index"
-
           ></navbar-link>
-
         <li>
-          <router-link class="nav-link"
-                       to="/create"
-                        active-class="active"
-
-
+          <router-link
+              class="nav-link"
+              to="/pages/create"
+              active-class="active"
           >Create Page</router-link>
         </li>
       </ul>
@@ -27,7 +24,6 @@
             class="btn btn-primary"
             @click.prevent="changeTheme()"
         >Toggle Navbar
-
         </button>
       </form>
     </div>
