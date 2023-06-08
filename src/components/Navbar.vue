@@ -34,7 +34,7 @@
 import NavbarLink from "@/components/NavbarLink";
 
 export default {
-  inject: ['$pages'],
+  inject: ['$pages', '$bus'],
   components: {NavbarLink},
   computed: {
     publishedPages() {
@@ -44,6 +44,10 @@ export default {
   created() {
     this.getThemeSetting();
     this.pages = this.$pages.getAllPages();
+    this.$bus.$on('page-updated', () => {
+      this.pages = [...this.$pages.getAllPages()];
+    })
+
   },
 
 

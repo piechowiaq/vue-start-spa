@@ -1,6 +1,6 @@
 <template>
 
-
+    <h4>Edit {{page.pageTitle}}</h4>
 
   <form action="" class="container mb-3">
     <div class="row">
@@ -55,10 +55,10 @@
       </div>
     </div>
     <div class="mb-3">
-      <button class="btn btn-primary me-2">
+      <button class="btn btn-primary me-2" @click.prevent="submit">
         Edit
       </button>
-      <button class="btn btn-secondary">
+      <button class="btn btn-secondary" @click.prevent="goToPagesList">
         Cancel
       </button>
 
@@ -75,10 +75,26 @@ import { inject } from "vue";
 const router = useRouter();
 
 const pages = inject('$pages');
+const bus = inject('$bus');
 
 const {index} = defineProps(['index']);
 
 let page = pages.getSinglePage(index);
+
+function submit(){
+  pages.editPage(index, page);
+
+  bus.$emit('page-updated', {
+    index,
+    page
+  });
+
+  goToPagesList();
+}
+
+function goToPagesList(){
+  router.push({path: '/pages'});
+}
 
 </script>
 
