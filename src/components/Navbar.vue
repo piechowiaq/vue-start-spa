@@ -48,6 +48,10 @@ export default {
       this.pages = [...this.$pages.getAllPages()];
     })
 
+    this.$bus.$on('page-created', () => {
+      this.pages = [...this.$pages.getAllPages()];
+    })
+
   },
 
 
